@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name         = 'CNApiManager'
-  s.version      = '1.0.2'
+  s.name         = 'CNApiManagerDemo'
+  s.version      = '1.0.3'
   s.license      = 'MIT'
   s.homepage     = 'https://git.oschina.net/congni/CNApiManager-OC.git'
   s.authors      = { "葱泥" => "983818495@qq.com" }
@@ -16,12 +16,8 @@ Pod::Spec.new do |s|
 
   s.platform     =  :ios, '7.0'
   s.source       =  { :git => "https://git.oschina.net/congni/CNApiManager-OC.git", :tag => s.version.to_s }
-  s.source_files = 'CNApiManagerOC/CNBaseApiManager.h'
   s.requires_arc = true
 
-  s.subspec 'CNApiManagerOC' do |ss|
-    ss.source_files = 'CNApiManagerOC/*'
-  end
 
-  s.dependencies =	pod 'AFNetworking', '~> 2.6.3'
+  s.dependency 'AFNetworking', '~> 2.6.3'
 end
