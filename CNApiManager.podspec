@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                       DESC
 
   s.ios.deployment_target = '7.0'
-  s.source       =  { :git => "https://git.oschina.net/congni/CNApiManager-OC.git", :tag => s.version.to_s }
+  s.source       =  { :git => "https://git.oschina.net/congni/CNApiManager-OC.git"}
   s.requires_arc = true
   s.source_files = 'CNApiManagerOC/*.{h,m}'
   s.public_header_files = 'CNApiManagerOC/*.{h}'

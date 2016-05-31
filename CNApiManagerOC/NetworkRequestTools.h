@@ -85,26 +85,13 @@ typedef enum : NSUInteger {
 + (AFHTTPRequestOperation *)requestWithURL:(NSString *)url httpMethod:(HttpMethod)httpMethod completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock;
 
 /**
- *    没有头文件的并且值是直接返回的
- *
- *    @param url             url地址  后半部分
- *    @param params_MulDict  参数
- *    @param httpMethod      请求方式
- *    @param completionBlock 成功回调
- *    @param errorBlock      错误回调
- *
- *    @return AFHTTPRequestOperation
- */
-+ (AFHTTPRequestOperation *)requestWithOutHeaderAndDataOprationWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod  completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock;
-
-/**
  *  网络系统配置  完整
  *
  *  @param headers_MulDict 自定义的header
  *  @param getHeaders_Arr  需要从api中获取的headers关键词
  *  @param baseURL         基础URL
  */
-+ (void)afHTTPRequestSettingWithRequestHeader:(NSMutableDictionary *)headers_MulDict GetHeaderForHeaderSetting:(NSArray *)getHeaders_Arr baseURL:(NSString *)baseURL;
++ (void)afHTTPRequestSettingWithRequestHeader:(NSMutableDictionary *)headersMulDictionary GetHeaderForHeaderSetting:(NSArray *)getHeadersArray baseURL:(NSString *)baseURL;
 
 /**
  *  网络系统配置  精简
@@ -112,7 +99,7 @@ typedef enum : NSUInteger {
  *  @param headers_MulDict 自定义的header
  *  @param baseURL         基础URL
  */
-+ (void)afHTTPRequestSettingWithRequestHeader:(NSMutableDictionary *)headers_MulDict baseURL:(NSString *)baseURL;
++ (void)afHTTPRequestSettingWithRequestHeader:(NSMutableDictionary *)headersMulDictionary baseURL:(NSString *)baseURL;
 
 /**
  *    是否需要对数据进行Log操作  默认是不处理的
