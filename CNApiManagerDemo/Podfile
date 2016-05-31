@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "7.0"
+
+target 'CNApiManagerDemo' do
+pod 'AFNetworking', '~> 2.6.3'
+pod 'CNKitCategory', '~> 1.1.7'
+end

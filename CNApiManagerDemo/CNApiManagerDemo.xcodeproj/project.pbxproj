@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		496FAE9F66B63E34B40B3915 /* libPods-CNApiManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F155C291DC4AA96C0061505 /* libPods-CNApiManagerDemo.a */; };
+		DA1ADAED1CFD273E003DAE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ADAEC1CFD273E003DAE10 /* main.m */; };
+		DA1ADAF01CFD273E003DAE10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ADAEF1CFD273E003DAE10 /* AppDelegate.m */; };
+		DA1ADAF31CFD273E003DAE10 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ADAF21CFD273E003DAE10 /* ViewController.m */; };
+		DA1ADAF61CFD273E003DAE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1ADAF41CFD273E003DAE10 /* Main.storyboard */; };
+		DA1ADAF81CFD273E003DAE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1ADAF71CFD273E003DAE10 /* Assets.xcassets */; };
+		DA1ADAFB1CFD273E003DAE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1ADAF91CFD273E003DAE10 /* LaunchScreen.storyboard */; };
+		DA1ADB071CFD280C003DAE10 /* CNBaseApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ADB041CFD280C003DAE10 /* CNBaseApiManager.m */; };
+		DA1ADB081CFD280C003DAE10 /* NetworkRequestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ADB061CFD280C003DAE10 /* NetworkRequestTools.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8F155C291DC4AA96C0061505 /* libPods-CNApiManagerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CNApiManagerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A258731DCCEDBEBEF8215E11 /* Pods-CNApiManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNApiManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DA1ADAE81CFD273E003DAE10 /* CNApiManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNApiManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1ADAEC1CFD273E003DAE10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA1ADAEE1CFD273E003DAE10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA1ADAEF1CFD273E003DAE10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA1ADAF11CFD273E003DAE10 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DA1ADAF21CFD273E003DAE10 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA1ADAF51CFD273E003DAE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA1ADAF71CFD273E003DAE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA1ADAFA1CFD273E003DAE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA1ADAFC1CFD273E003DAE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA1ADB031CFD280C003DAE10 /* CNBaseApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNBaseApiManager.h; sourceTree = "<group>"; };
+		DA1ADB041CFD280C003DAE10 /* CNBaseApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNBaseApiManager.m; sourceTree = "<group>"; };
+		DA1ADB051CFD280C003DAE10 /* NetworkRequestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequestTools.h; sourceTree = "<group>"; };
+		DA1ADB061CFD280C003DAE10 /* NetworkRequestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequestTools.m; sourceTree = "<group>"; };
+		F74356A1A2FB6877E4697134 /* Pods-CNApiManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNApiManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA1ADAE51CFD273E003DAE10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				496FAE9F66B63E34B40B3915 /* libPods-CNApiManagerDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7614FE314454510632307490 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F155C291DC4AA96C0061505 /* libPods-CNApiManagerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC57AAAE7525163A72F8E6F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A258731DCCEDBEBEF8215E11 /* Pods-CNApiManagerDemo.debug.xcconfig */,
+				F74356A1A2FB6877E4697134 /* Pods-CNApiManagerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA1ADADF1CFD273E003DAE10 = {
+			isa = PBXGroup;
+			children = (
+				DA1ADB021CFD280C003DAE10 /* CNApiManagerOC */,
+				DA1ADAEA1CFD273E003DAE10 /* CNApiManagerDemo */,
+				DA1ADAE91CFD273E003DAE10 /* Products */,
+				CC57AAAE7525163A72F8E6F9 /* Pods */,
+				7614FE314454510632307490 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DA1ADAE91CFD273E003DAE10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA1ADAE81CFD273E003DAE10 /* CNApiManagerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA1ADAEA1CFD273E003DAE10 /* CNApiManagerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DA1ADAEE1CFD273E003DAE10 /* AppDelegate.h */,
+				DA1ADAEF1CFD273E003DAE10 /* AppDelegate.m */,
+				DA1ADAF11CFD273E003DAE10 /* ViewController.h */,
+				DA1ADAF21CFD273E003DAE10 /* ViewController.m */,
+				DA1ADAF41CFD273E003DAE10 /* Main.storyboard */,
+				DA1ADAF71CFD273E003DAE10 /* Assets.xcassets */,
+				DA1ADAF91CFD273E003DAE10 /* LaunchScreen.storyboard */,
+				DA1ADAFC1CFD273E003DAE10 /* Info.plist */,
+				DA1ADAEB1CFD273E003DAE10 /* Supporting Files */,
+			);
+			path = CNApiManagerDemo;
+			sourceTree = "<group>";
+		};
+		DA1ADAEB1CFD273E003DAE10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA1ADAEC1CFD273E003DAE10 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA1ADB021CFD280C003DAE10 /* CNApiManagerOC */ = {
+			isa = PBXGroup;
+			children = (
+				DA1ADB031CFD280C003DAE10 /* CNBaseApiManager.h */,
+				DA1ADB041CFD280C003DAE10 /* CNBaseApiManager.m */,
+				DA1ADB051CFD280C003DAE10 /* NetworkRequestTools.h */,
+				DA1ADB061CFD280C003DAE10 /* NetworkRequestTools.m */,
+			);
+			path = CNApiManagerOC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA1ADAE71CFD273E003DAE10 /* CNApiManagerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA1ADAFF1CFD273E003DAE10 /* Build configuration list for PBXNativeTarget "CNApiManagerDemo" */;
+			buildPhases = (
+				7AD9C9960B279444875E7EF7 /* 📦 Check Pods Manifest.lock */,
+				DA1ADAE41CFD273E003DAE10 /* Sources */,
+				DA1ADAE51CFD273E003DAE10 /* Frameworks */,
+				DA1ADAE61CFD273E003DAE10 /* Resources */,
+				0A0E57EE615635A76D9B4552 /* 📦 Embed Pods Frameworks */,
+				9A1F707D44EC6FEADD532BBE /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CNApiManagerDemo;
+			productName = CNApiManagerDemo;
+			productReference = DA1ADAE81CFD273E003DAE10 /* CNApiManagerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA1ADAE01CFD273E003DAE10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = quanXiang;
+				TargetAttributes = {
+					DA1ADAE71CFD273E003DAE10 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = DA1ADAE31CFD273E003DAE10 /* Build configuration list for PBXProject "CNApiManagerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA1ADADF1CFD273E003DAE10;
+			productRefGroup = DA1ADAE91CFD273E003DAE10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA1ADAE71CFD273E003DAE10 /* CNApiManagerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA1ADAE61CFD273E003DAE10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1ADAFB1CFD273E003DAE10 /* LaunchScreen.storyboard in Resources */,
+				DA1ADAF81CFD273E003DAE10 /* Assets.xcassets in Resources */,
+				DA1ADAF61CFD273E003DAE10 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A0E57EE615635A76D9B4552 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AD9C9960B279444875E7EF7 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9A1F707D44EC6FEADD532BBE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA1ADAE41CFD273E003DAE10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA1ADAF31CFD273E003DAE10 /* ViewController.m in Sources */,
+				DA1ADAF01CFD273E003DAE10 /* AppDelegate.m in Sources */,
+				DA1ADB071CFD280C003DAE10 /* CNBaseApiManager.m in Sources */,
+				DA1ADAED1CFD273E003DAE10 /* main.m in Sources */,
+				DA1ADB081CFD280C003DAE10 /* NetworkRequestTools.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA1ADAF41CFD273E003DAE10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1ADAF51CFD273E003DAE10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA1ADAF91CFD273E003DAE10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1ADAFA1CFD273E003DAE10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA1ADAFD1CFD273E003DAE10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DA1ADAFE1CFD273E003DAE10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA1ADB001CFD273E003DAE10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A258731DCCEDBEBEF8215E11 /* Pods-CNApiManagerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CNApiManagerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ixdtech.CNApiManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA1ADB011CFD273E003DAE10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F74356A1A2FB6877E4697134 /* Pods-CNApiManagerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CNApiManagerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ixdtech.CNApiManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA1ADAE31CFD273E003DAE10 /* Build configuration list for PBXProject "CNApiManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA1ADAFD1CFD273E003DAE10 /* Debug */,
+				DA1ADAFE1CFD273E003DAE10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA1ADAFF1CFD273E003DAE10 /* Build configuration list for PBXNativeTarget "CNApiManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA1ADB001CFD273E003DAE10 /* Debug */,
+				DA1ADB011CFD273E003DAE10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA1ADAE01CFD273E003DAE10 /* Project object */;
+}
