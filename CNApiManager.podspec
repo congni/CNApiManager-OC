@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'CNApiManager'
-  s.version      = '1.0.3'
-  s.license      = 'MIT'
+  s.version      = '1.0.4'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.homepage     = 'https://git.oschina.net/congni/CNApiManager-OC.git'
   s.authors      = { "葱泥" => "983818495@qq.com" }
   s.summary      = 'OC基本网络层封装'
@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
                       * Finally, don't worry about the indent, CocoaPods strips it!
                       DESC
 
-  s.platform     =  :ios, '7.0'
+  s.ios.deployment_target = '7.0'
   s.source       =  { :git => "https://git.oschina.net/congni/CNApiManager-OC.git", :tag => s.version.to_s }
   s.requires_arc = true
-  s.source_files = 'CNApiManagerOC/*.{h,m}'
-  s.public_header_files = 'CNApiManagerOC/*.{h}'
+  s.source_files = 'CNApiManager/CNApiManagerOC/*.{h,m}'
+  s.public_header_files = 'CNApiManager/CNApiManagerOC/*.{h}'
 
   s.dependency 'AFNetworking', '~> 2.6.3'
 end
