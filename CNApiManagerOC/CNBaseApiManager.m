@@ -8,7 +8,6 @@
 
 #import "CNBaseApiManager.h"
 #import <objc/runtime.h>
-#import <CNKitCategory/CNKit.h>
 #import <AFNetworking/AFNetworking.h>
 
 

@@ -87,7 +87,7 @@ static BOOL isNeedLog = NO;
     
     
     NSLog(@"httpMethod  %@",@(httpMethod));
-    if (httpMethod == HttpMethod_GET) {
+    if (httpMethod == GET) {
         operation = [manager GET:requestURL parameters:params_MulDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (isNeedLog) {
                 AFLog(@"数据请求  responseObject  %@",responseObject);
@@ -110,7 +110,7 @@ static BOOL isNeedLog = NO;
                 errorBlock(error);
             }
         }];
-    } else if (httpMethod == HttpMethod_POST) {
+    } else if (httpMethod == POST) {
         operation = [manager POST:requestURL parameters:params_MulDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             if (isHaveFileBool) {
                 for (NSString *key in params_MulDict) {

@@ -133,7 +133,7 @@ typedef enum : NSUInteger {
  *
  *  @return 存在就YES 不存在就NO
  */
-- (BOOL)isStoreHeadersForGet;
++ (BOOL)isStoreHeadersForGet;
 
 /**
  *  删除存储的头信息
