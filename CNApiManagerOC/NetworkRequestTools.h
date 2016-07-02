@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking/AFNetworking.h"
+#import "ResultModel.h"
 
 
 /**
@@ -31,15 +32,10 @@ typedef enum : NSUInteger {
 
 - (NSString *)networkErrorDescription:(NSInteger)statueCode;
 - (ResultModel *)networkHandleRecevieData:(id)responseObject requestOperation:(AFHTTPRequestOperation *)afRequestOperation;
+- (ResultModel *)noNetwork;
 
 @end
 
-@interface ResultModel : NSObject
-
-@property (nonatomic, strong) NSError *error;
-@property (nonatomic, strong) NSObject *result;
-
-@end
 
 @interface NetworkRequestTools : NSObject
 
@@ -126,6 +122,13 @@ typedef enum : NSUInteger {
  *  删除存储的头信息
  */
 + (void)removeGetHeaderData;
+
+/**
+ *  获取错误处理文件
+ *
+ *  @return 错误处理文件
+ */
++ (id<CNNetworkErrorDelegate>)networkErrorHandle;
 
 /**
  *  检查是否有网络

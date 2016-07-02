@@ -8,7 +8,7 @@
 
 #import "CNBaseApiManager.h"
 #import <objc/runtime.h>
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking/AFNetworking.h"
 
 
 @implementation CNBaseApiManager
@@ -96,18 +96,20 @@
         [self.afOpertation_MulArr removeObject:aff];
     }];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        // 取消之前的数据请求
-        [self.afOpertation_MulArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            AFHTTPRequestOperation *preAffRequestOperation = obj;
-            if ([preAffRequestOperation.request.URL.absoluteString isEqual:aff.request.URL.absoluteString]) {
-                [preAffRequestOperation cancel];
-                [self.afOpertation_MulArr removeObject:preAffRequestOperation];
-            }
-        }];
-        
-        [self.afOpertation_MulArr addObject:aff];
-    });
+    if (aff) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            // 取消之前的数据请求
+            [self.afOpertation_MulArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                AFHTTPRequestOperation *preAffRequestOperation = obj;
+                if ([preAffRequestOperation.request.URL.absoluteString isEqual:aff.request.URL.absoluteString]) {
+                    [preAffRequestOperation cancel];
+                    [self.afOpertation_MulArr removeObject:preAffRequestOperation];
+                }
+            }];
+            
+            [self.afOpertation_MulArr addObject:aff];
+        });
+    }
 }
 
 #pragma mark 下一页
@@ -116,7 +118,7 @@
         if (!self.isLastPage) {
             [self loadApiDataByParam:self.apiParamMulDictionary];
         } else {
-            NSLog(@"已经最后一行");
+            DLog(@"已经最后一行");
         }
     } else {
         NSAssert(NO, @"你不设置isSupportNextPage，还加载毛下一页啊");

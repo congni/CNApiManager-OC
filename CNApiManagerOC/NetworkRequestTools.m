@@ -54,16 +54,32 @@ static BOOL isNeedLog = NO;
 
 #pragma mark -- 数据请求
 + (AFHTTPRequestOperation *)requestWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod  isHaveFile:(BOOL)isHaveFileBool completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
+    if (![NetworkRequestTools isExistenceNetWork]) {
+        ResultModel *noNetworkResultModel = [networkHandle noNetwork];
+        
+        if (noNetworkResultModel.error) {
+            if (errorBlock) {
+                errorBlock(noNetworkResultModel.error);
+            }
+        }
+        
+        return nil;
+    }
+    
     
     AFHTTPRequestOperation * operation = nil;
     
     //FIXME: 暂时不做baseURL
     NSString *requestURL = url;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer = serializer;
+    manager.requestSerializer.HTTPShouldHandleCookies = NO;
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = 60.0;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    [manager.securityPolicy setAllowInvalidCertificates:YES];
     
     if (headerMulDictionary) {
         [headerMulDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -85,8 +101,6 @@ static BOOL isNeedLog = NO;
         }
     }
     
-    
-    NSLog(@"httpMethod  %@",@(httpMethod));
     if (httpMethod == GET) {
         operation = [manager GET:requestURL parameters:params_MulDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (isNeedLog) {
@@ -111,53 +125,80 @@ static BOOL isNeedLog = NO;
             }
         }];
     } else if (httpMethod == POST) {
-        operation = [manager POST:requestURL parameters:params_MulDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            if (isHaveFileBool) {
-                for (NSString *key in params_MulDict) {
-                    
-                    id value = params_MulDict[key];
-                    
-                    if ([value isKindOfClass:[NSData class]]) {
+        if (isHaveFileBool) {
+            operation = [manager POST:requestURL parameters:params_MulDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                if (isHaveFileBool) {
+                    for (NSString *key in params_MulDict) {
                         
-                        [formData appendPartWithFileData:value
-                         
-                                                    name:key
-                         
-                                                fileName:key
-                         
-                                                mimeType:@"image/jpeg"];
+                        id value = params_MulDict[key];
                         
+                        if ([value isKindOfClass:[NSData class]]) {
+                            
+                            [formData appendPartWithFileData:value
+                             
+                                                        name:key
+                             
+                                                    fileName:key
+                             
+                                                    mimeType:@"image/jpeg"];
+                            
+                        }
                     }
                 }
-            }
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            if (isNeedLog) {
-                AFLog(@"数据请求  responseObject  %@",responseObject);
-            }
-            
-            [self didGetHeaders:operation.response.allHeaderFields];
-            ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
-            
-            if (resultModel.error) {
+            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if (isNeedLog) {
+                    AFLog(@"数据请求  responseObject  %@",responseObject);
+                }
+                
+                [self didGetHeaders:operation.response.allHeaderFields];
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
+                
+                if (resultModel.error) {
+                    if (errorBlock) {
+                        errorBlock(resultModel.error);
+                    }
+                } else {
+                    if (completionBlock) {
+                        completionBlock(resultModel.result);
+                    }
+                }
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 if (errorBlock) {
-                    errorBlock(resultModel.error);
+                    errorBlock(error);
                 }
-            } else {
-                if (completionBlock) {
-                    completionBlock(resultModel.result);
+            }];
+        } else {
+            operation = [manager POST:requestURL parameters:params_MulDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                if (isNeedLog) {
+                    AFLog(@"数据请求  responseObject  %@",responseObject);
                 }
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            if (errorBlock) {
-                errorBlock(error);
-            }
-        }];
+                
+                [self didGetHeaders:operation.response.allHeaderFields];
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
+                
+                if (resultModel.error) {
+                    if (errorBlock) {
+                        errorBlock(resultModel.error);
+                    }
+                } else {
+                    if (completionBlock) {
+                        completionBlock(resultModel.result);
+                    }
+                }
+                
+            } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                if (errorBlock) {
+                    errorBlock(error);
+                }
+            }];
+        }
     }
     
     operation.responseSerializer =[AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     
 #pragma mark 修复AFNetworking2.0的相关BUG的代码  http://blog.csdn.net/dengbin9009/article/details/43485617
-    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
+    
     return operation;
 }
 
@@ -247,6 +288,11 @@ static BOOL isNeedLog = NO;
     }
     
     return isStoreHeadersForGet;
+}
+
+#pragma mark 获取错误处理文件
++ (id<CNNetworkErrorDelegate>)networkErrorHandle {
+    return networkHandle;
 }
 
 #pragma mark 删除存储的头信息
