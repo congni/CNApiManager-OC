@@ -2,7 +2,7 @@
 //  ResultModel.m
 //  Pods
 //
-//  Created by 汪君 on 16/6/14.
+//  Created by 葱泥 on 16/6/14.
 //
 //
 
