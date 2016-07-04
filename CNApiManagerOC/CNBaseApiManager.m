@@ -118,7 +118,7 @@
         if (!self.isLastPage) {
             [self loadApiDataByParam:self.apiParamMulDictionary];
         } else {
-            DLog(@"已经最后一行");
+//            DLog(@"已经最后一行");
         }
     } else {
         NSAssert(NO, @"你不设置isSupportNextPage，还加载毛下一页啊");

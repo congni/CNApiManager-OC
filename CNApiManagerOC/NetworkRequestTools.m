@@ -121,7 +121,6 @@ static BOOL isNeedLog = NO;
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-            DLog(@"errorerror  %@", error);
             
             if (errorBlock) {
                 errorBlock(resultModel.error);
@@ -167,7 +166,6 @@ static BOOL isNeedLog = NO;
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-                DLog(@"errorerror  %@", error);
                 
                 if (errorBlock) {
                     errorBlock(resultModel.error);
@@ -194,7 +192,6 @@ static BOOL isNeedLog = NO;
                 
             } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
                 ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-                DLog(@"errorerror  %@", error);
                 
                 if (errorBlock) {
                     errorBlock(resultModel.error);
