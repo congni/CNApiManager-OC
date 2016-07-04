@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'CNApiManager'
-  s.version      = '1.0.7'
+  s.version      = '1.0.8'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.homepage     = 'https://git.oschina.net/congni/CNApiManager-OC.git'
   s.authors      = { "葱泥" => "983818495@qq.com" }

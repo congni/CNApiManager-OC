@@ -108,7 +108,7 @@ static BOOL isNeedLog = NO;
             }
             
             [self didGetHeaders:operation.response.allHeaderFields];
-            ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
+            ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
             
             if (resultModel.error) {
                 if (errorBlock) {
@@ -120,8 +120,11 @@ static BOOL isNeedLog = NO;
                 }
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
+            DLog(@"errorerror  %@", error);
+            
             if (errorBlock) {
-                errorBlock(error);
+                errorBlock(resultModel.error);
             }
         }];
     } else if (httpMethod == POST) {
@@ -151,7 +154,7 @@ static BOOL isNeedLog = NO;
                 }
                 
                 [self didGetHeaders:operation.response.allHeaderFields];
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
                 
                 if (resultModel.error) {
                     if (errorBlock) {
@@ -163,8 +166,11 @@ static BOOL isNeedLog = NO;
                     }
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
+                DLog(@"errorerror  %@", error);
+                
                 if (errorBlock) {
-                    errorBlock(error);
+                    errorBlock(resultModel.error);
                 }
             }];
         } else {
@@ -174,7 +180,7 @@ static BOOL isNeedLog = NO;
                 }
                 
                 [self didGetHeaders:operation.response.allHeaderFields];
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation];
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
                 
                 if (resultModel.error) {
                     if (errorBlock) {
@@ -187,8 +193,11 @@ static BOOL isNeedLog = NO;
                 }
                 
             } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
+                DLog(@"errorerror  %@", error);
+                
                 if (errorBlock) {
-                    errorBlock(error);
+                    errorBlock(resultModel.error);
                 }
             }];
         }

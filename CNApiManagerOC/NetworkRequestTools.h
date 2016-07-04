@@ -31,7 +31,7 @@ typedef enum : NSUInteger {
 @protocol CNNetworkErrorDelegate <NSObject>
 
 - (NSString *)networkErrorDescription:(NSInteger)statueCode;
-- (ResultModel *)networkHandleRecevieData:(id)responseObject requestOperation:(AFHTTPRequestOperation *)afRequestOperation;
+- (ResultModel *)networkHandleRecevieData:(id)responseObject requestOperation:(AFHTTPRequestOperation *)afRequestOperation error: (NSError *)error;
 - (ResultModel *)noNetwork;
 
 @end
