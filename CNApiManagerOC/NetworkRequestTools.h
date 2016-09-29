@@ -20,6 +20,7 @@
 typedef void(^CompletionLoad)(NSObject *result);
 typedef void(^RequestError)(NSError *error);
 
+
 typedef enum : NSUInteger {
     GET = 1,
     POST
@@ -30,8 +31,33 @@ typedef enum : NSUInteger {
 
 @protocol CNNetworkErrorDelegate <NSObject>
 
+/**
+ 根据错误 code, 获取问题描述
+
+ @param statueCode 错误码
+
+ @return 问题描述
+ */
 - (NSString *)networkErrorDescription:(NSInteger)statueCode;
-- (ResultModel *)networkHandleRecevieData:(id)responseObject requestOperation:(AFHTTPRequestOperation *)afRequestOperation error: (NSError *)error;
+
+
+/**
+ 数据处理
+
+ @param responseObject   api 返回收
+ @param sessionDataTask  NSURLSessionDataTask对象
+ @param error           错误
+
+ @return ResultModel
+ */
+- (ResultModel *)networkHandleRecevieData:(id)responseObject requestOperation:(NSURLSessionDataTask *)sessionDataTask error: (NSError *)error;
+
+
+/**
+ 获取无网络的ResultModel数据
+
+ @return ResultModel
+ */
 - (ResultModel *)noNetwork;
 
 @end
@@ -42,43 +68,17 @@ typedef enum : NSUInteger {
 + (id)instance;
 
 /**
- *  网络请求  完整
- *
- *  @param url             url地址  后半部分
- *  @param params_MulDict  参数
- *  @param httpMethod      请求方式
- *  @param isHaveFileBool  是否有文件需要上传（文件会以NSData的方式存在params_MulDict参数字典中）
- *  @param completionBlock 成功回调
- *  @param errorBlock      错误回调
- *
- *  @return AFHTTPRequestOperation
- */
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod  isHaveFile:(BOOL)isHaveFileBool completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock;
+ 数据请求
 
-/**
- *  网络请求  精简file  默认是没有文件上传的
- *
- *  @param url             url地址  后半部分
- *  @param params_MulDict  参数
- *  @param httpMethod      请求方式
- *  @param completionBlock 成功回调
- *  @param errorBlock      错误回调
- *
- *  @return AFHTTPRequestOperation
- */
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock;
+ @param url              url地址  后半部分
+ @param paramsDictionary 参数
+ @param httpMethod       请求方式
+ @param completionBlock  成功回调
+ @param errorBlock       错误回调
 
-/**
- *  网络请求  精简file、参数 默认是没有文件上传的
- *
- *  @param url             url地址  后半部分
- *  @param httpMethod      请求方式
- *  @param completionBlock 成功回调
- *  @param errorBlock      错误回调
- *
- *  @return AFHTTPRequestOperation
+ @return NSURLSessionDataTask
  */
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url httpMethod:(HttpMethod)httpMethod completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock;
++ (NSURLSessionDataTask *)requestWithURL:(NSString *)url params:(NSDictionary *)paramsDictionary httpMethod:(HttpMethod)httpMethod  completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock ;
 
 /**
  *  网络系统配置  完整
@@ -105,11 +105,26 @@ typedef enum : NSUInteger {
 + (void)afHttpRequestDataNeedLog:(BOOL)needLog;
 
 /**
- *  错误处理机制
+ *  错误处理机制(注: 必须设置)
  *
  *  @param handle CNNetworkErrorDelegate 对象
  */
 + (void)afHttpRequestHandleDataSetting:(id<CNNetworkErrorDelegate>)handle;
+
+
+/**
+ 基础参数配置(此参数和业务参数是分离的, 只作为基础请求参数, 发送给服务端)
+
+ @param baseParamsDictionary 基础参数
+ */
++ (void)afHttpRequestBaseParamsSetting:(NSDictionary *)baseParamsDictionary;
+
+/**
+ 超时时间设置(注: 可不设置, 默认为60s)
+
+ @param timeoutInterval 超时时间设置
+ */
++ (void)afHttpRequestTimeoutInterval:(CGFloat)timeoutInterval;
 
 /**
  *  isStoreHeadersForGet

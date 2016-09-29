@@ -19,41 +19,23 @@ static NSArray *getHeadersFieldArray = nil;
 static NSMutableDictionary *getHeadersFieldMulDictionary = nil;
 static NSString *getHeadersFieldCache = @"NetworkRequestTools-getHeadersFieldCache";
 static BOOL isNeedLog = NO;
+static CGFloat kTimeoutInterval = 60.0;
+static NSDictionary *kBaseParamsDictionary = nil;
+
+
+#ifdef DEBUG
+#define CALog(fmt,...) NSLog((@"网络库打印\n" "[函数名]%s\n" "[日志]"fmt"\n"),__FUNCTION__,##__VA_ARGS__);
+#else
+#define CALog(fmt,...);
+#endif
 
 
 @implementation NetworkRequestTools
-#define AFLog(...) NSLog(__VA_ARGS__)
 
 
-#pragma mark 获取headers
-+ (void)didGetHeaders:(NSDictionary *)allHeaderFieldsDictionary {
-    if (getHeadersFieldArray) {
-        if (!getHeadersFieldMulDictionary) {
-            getHeadersFieldMulDictionary = [[NSMutableDictionary alloc] init];
-        }
-        
-        NSMutableDictionary *copyGetHeaderFieldMulDictionary = [getHeadersFieldMulDictionary copy];
-        
-        [getHeadersFieldArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([[allHeaderFieldsDictionary allKeys] containsObject:obj]) {
-                [getHeadersFieldMulDictionary setObject:[allHeaderFieldsDictionary objectForKey:obj] forKey:obj];
-            }
-        }];
-        
-        if (![copyGetHeaderFieldMulDictionary isEqualToDictionary:getHeadersFieldMulDictionary]) {
-            if ([getHeadersFieldMulDictionary allKeys] > 0) {
-                NSMutableData *errorMsg_Data = [[NSMutableData alloc] init];
-                NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:errorMsg_Data];
-                [archiver encodeObject:getHeadersFieldArray forKey:getHeadersFieldCache];
-                [archiver finishEncoding];
-                [NetworkRequestTools didSaveUserDefaultsDataWithKey:getHeadersFieldCache value:getHeadersFieldMulDictionary];
-            }
-        }
-    }
-}
-
-#pragma mark -- 数据请求
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod  isHaveFile:(BOOL)isHaveFileBool completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
+#pragma mark - Private Method
+#pragma mark 数据请求
++ (NSURLSessionDataTask *)requestWithURL:(NSString *)url params:(NSDictionary *)paramsDictionary httpMethod:(HttpMethod)httpMethod  completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
     if (![NetworkRequestTools isExistenceNetWork]) {
         ResultModel *noNetworkResultModel = [networkHandle noNetwork];
         
@@ -66,20 +48,17 @@ static BOOL isNeedLog = NO;
         return nil;
     }
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 超时时间
+    manager.requestSerializer.timeoutInterval = kTimeoutInterval;
+    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
+    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
+    // 声明获取到的数据格式
+    manager.responseSerializer = [AFJSONResponseSerializer serializer]; // AFN会JSON解析返回的数据
     
-    AFHTTPRequestOperation * operation = nil;
-    
+    NSURLSessionDataTask *sessionDataTask = nil;
     //FIXME: 暂时不做baseURL
     NSString *requestURL = url;
-
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
-    manager.requestSerializer = serializer;
-    manager.requestSerializer.HTTPShouldHandleCookies = NO;
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 60.0;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    [manager.securityPolicy setAllowInvalidCertificates:YES];
     
     if (headerMulDictionary) {
         [headerMulDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -101,141 +80,31 @@ static BOOL isNeedLog = NO;
         }
     }
     
-    if (httpMethod == GET) {
-        operation = [manager GET:requestURL parameters:params_MulDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            if (isNeedLog) {
-                AFLog(@"数据请求  responseObject  %@",responseObject);
-            }
-            
-            [self didGetHeaders:operation.response.allHeaderFields];
-            ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
-            
-            if (resultModel.error) {
-                if (errorBlock) {
-                    errorBlock(resultModel.error);
-                }
-            } else {
-                if (completionBlock) {
-                    completionBlock(resultModel.result);
-                }
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-            
-            if (errorBlock) {
-                errorBlock(resultModel.error);
-            }
-        }];
-    } else if (httpMethod == POST) {
-        if (isHaveFileBool) {
-            operation = [manager POST:requestURL parameters:params_MulDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                if (isHaveFileBool) {
-                    for (NSString *key in params_MulDict) {
-                        
-                        id value = params_MulDict[key];
-                        
-                        if ([value isKindOfClass:[NSData class]]) {
-                            
-                            [formData appendPartWithFileData:value
-                             
-                                                        name:key
-                             
-                                                    fileName:key
-                             
-                                                    mimeType:@"image/jpeg"];
-                            
-                        }
-                    }
-                }
-            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                if (isNeedLog) {
-                    AFLog(@"数据请求  responseObject  %@",responseObject);
-                }
-                
-                [self didGetHeaders:operation.response.allHeaderFields];
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
-                
-                if (resultModel.error) {
-                    if (errorBlock) {
-                        errorBlock(resultModel.error);
-                    }
-                } else {
-                    if (completionBlock) {
-                        completionBlock(resultModel.result);
-                    }
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-                
-                if (errorBlock) {
-                    errorBlock(resultModel.error);
-                }
-            }];
-        } else {
-            operation = [manager POST:requestURL parameters:params_MulDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-                if (isNeedLog) {
-                    AFLog(@"数据请求  responseObject  %@",responseObject);
-                }
-                
-                [self didGetHeaders:operation.response.allHeaderFields];
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:operation error:nil];
-                
-                if (resultModel.error) {
-                    if (errorBlock) {
-                        errorBlock(resultModel.error);
-                    }
-                } else {
-                    if (completionBlock) {
-                        completionBlock(resultModel.result);
-                    }
-                }
-                
-            } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-                ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:operation error:error];
-                
-                if (errorBlock) {
-                    errorBlock(resultModel.error);
-                }
-            }];
-        }
+    NSMutableDictionary *paramsMulDictionary = [NSMutableDictionary dictionaryWithDictionary:paramsDictionary];
+    
+    if (kBaseParamsDictionary) {
+        [paramsMulDictionary addEntriesFromDictionary:paramsMulDictionary];
     }
     
-    operation.responseSerializer =[AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+    if (httpMethod == GET) {
+        sessionDataTask = [manager GET:requestURL parameters:paramsDictionary progress:^(NSProgress * _Nonnull downloadProgress) {
+            // 进度
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [self successOpration:task response:responseObject completionBlock:completionBlock errorBlock:errorBlock];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self failOpration:task errorBlock:errorBlock error:error];
+        }];
+    } else if (httpMethod == POST) {
+        sessionDataTask = [manager POST:requestURL parameters:paramsDictionary progress:^(NSProgress * _Nonnull uploadProgress) {
+            // 进度
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [self successOpration:task response:responseObject completionBlock:completionBlock errorBlock:errorBlock];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self failOpration:task errorBlock:errorBlock error:error];
+        }];
+    }
     
-#pragma mark 修复AFNetworking2.0的相关BUG的代码  http://blog.csdn.net/dengbin9009/article/details/43485617
-    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
-    
-    return operation;
-}
-
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url params:(NSMutableDictionary *)params_MulDict httpMethod:(HttpMethod)httpMethod completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
-    AFHTTPRequestOperation * operation = nil;
-    
-    operation = [NetworkRequestTools requestWithURL:url params:params_MulDict httpMethod:httpMethod isHaveFile:NO completionBlock:^(NSObject *result) {
-        if (completionBlock) {
-            completionBlock(result);
-        }
-    } errorBlock:^(NSError *error) {
-        if (errorBlock) {
-            errorBlock(error);
-        }
-    }];
-    
-    return operation;
-}
-
-+ (AFHTTPRequestOperation *)requestWithURL:(NSString *)url httpMethod:(HttpMethod)httpMethod completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
-    AFHTTPRequestOperation * operation = nil;
-    operation = [NetworkRequestTools requestWithURL:url params:nil httpMethod:httpMethod isHaveFile:NO completionBlock:^(NSObject *result) {
-        if (completionBlock) {
-            completionBlock(result);
-        }
-    } errorBlock:^(NSError *error) {
-        if (errorBlock) {
-            errorBlock(error);
-        }
-    }];
-    return operation;
+    return sessionDataTask;
 }
 
 #pragma mark 添加自定义的headers  并且设置需要从headers重获取相应的数据 以设置headers  基础网络连接地址
@@ -296,9 +165,19 @@ static BOOL isNeedLog = NO;
     return isStoreHeadersForGet;
 }
 
+#pragma mark 超时设定
++ (void)afHttpRequestTimeoutInterval:(CGFloat)timeoutInterval {
+    kTimeoutInterval = timeoutInterval;
+}
+
 #pragma mark 获取错误处理文件
 + (id<CNNetworkErrorDelegate>)networkErrorHandle {
     return networkHandle;
+}
+
+#pragma mark 基础参数设定
++ (void)afHttpRequestBaseParamsSetting:(NSDictionary *)baseParamsDictionary {
+    
 }
 
 #pragma mark 删除存储的头信息
@@ -308,7 +187,7 @@ static BOOL isNeedLog = NO;
     }
 }
 
-#pragma -mark 判断是否有网络
+#pragma mark 判断是否有网络
 + (BOOL)isExistenceNetWork {
     struct sockaddr_in zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
@@ -342,6 +221,68 @@ static BOOL isNeedLog = NO;
     });
     
     return sharedTool;
+}
+
+
+#pragma mark - Private Method
+#pragma mark 获取headers
++ (void)didGetHeaders:(NSDictionary *)allHeaderFieldsDictionary {
+    if (getHeadersFieldArray) {
+        if (!getHeadersFieldMulDictionary) {
+            getHeadersFieldMulDictionary = [[NSMutableDictionary alloc] init];
+        }
+        
+        NSMutableDictionary *copyGetHeaderFieldMulDictionary = [getHeadersFieldMulDictionary copy];
+        
+        [getHeadersFieldArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if ([[allHeaderFieldsDictionary allKeys] containsObject:obj]) {
+                [getHeadersFieldMulDictionary setObject:[allHeaderFieldsDictionary objectForKey:obj] forKey:obj];
+            }
+        }];
+        
+        if (![copyGetHeaderFieldMulDictionary isEqualToDictionary:getHeadersFieldMulDictionary]) {
+            if ([getHeadersFieldMulDictionary allKeys] > 0) {
+                NSMutableData *errorMsg_Data = [[NSMutableData alloc] init];
+                NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:errorMsg_Data];
+                [archiver encodeObject:getHeadersFieldArray forKey:getHeadersFieldCache];
+                [archiver finishEncoding];
+                [NetworkRequestTools didSaveUserDefaultsDataWithKey:getHeadersFieldCache value:getHeadersFieldMulDictionary];
+            }
+        }
+    }
+}
+
+#pragma mark 成功数据处理
++ (void)successOpration:(NSURLSessionDataTask *)sesionDataTask response:(id)responseObject completionBlock:(CompletionLoad)completionBlock errorBlock:(RequestError)errorBlock {
+    if (isNeedLog) {
+        CALog(@"数据请求  responseObject  %@",responseObject);
+    }
+    
+    if ([sesionDataTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sesionDataTask.response;
+        [self didGetHeaders:httpResponse.allHeaderFields];
+    }
+    
+    ResultModel *resultModel = [networkHandle networkHandleRecevieData:responseObject requestOperation:sesionDataTask error:nil];
+    
+    if (resultModel.error) {
+        if (errorBlock) {
+            errorBlock(resultModel.error);
+        }
+    } else {
+        if (completionBlock) {
+            completionBlock(resultModel.result);
+        }
+    }
+}
+
+#pragma mark 失败处理
++ (void)failOpration:(NSURLSessionDataTask *)sesionDataTask errorBlock:(RequestError)errorBlock error:(NSError *)err {
+    ResultModel *resultModel = [networkHandle networkHandleRecevieData:nil requestOperation:sesionDataTask error:err];
+    
+    if (errorBlock) {
+        errorBlock(resultModel.error);
+    }
 }
 
 #pragma mark -- 数据存储

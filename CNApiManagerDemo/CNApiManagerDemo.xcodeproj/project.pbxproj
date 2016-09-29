@@ -7,22 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331221121D9BA58100CCF436 /* CNBaseApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312210D1D9BA58100CCF436 /* CNBaseApiManager.m */; };
+		331221131D9BA58100CCF436 /* NetworkRequestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312210F1D9BA58100CCF436 /* NetworkRequestTools.m */; };
+		331221141D9BA58100CCF436 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221111D9BA58100CCF436 /* ResultModel.m */; };
+		331221171D9BA5D000CCF436 /* ErrorHandleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221161D9BA5D000CCF436 /* ErrorHandleManager.m */; };
+		3312211A1D9BA79000CCF436 /* URLProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221191D9BA79000CCF436 /* URLProfileManager.m */; };
+		3312211D1D9BA88200CCF436 /* AdverApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312211C1D9BA88200CCF436 /* AdverApiManager.m */; };
+		33A4EAD11D9BC73C00578082 /* ErrorHandleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221161D9BA5D000CCF436 /* ErrorHandleManager.m */; };
+		33A4EAD21D9BC73C00578082 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221111D9BA58100CCF436 /* ResultModel.m */; };
+		33A4EAD31D9BC73C00578082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E12B1CFD82C10084575E /* ViewController.m */; };
+		33A4EAD41D9BC73C00578082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E1281CFD82C10084575E /* AppDelegate.m */; };
+		33A4EAD51D9BC73C00578082 /* CNBaseApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312210D1D9BA58100CCF436 /* CNBaseApiManager.m */; };
+		33A4EAD61D9BC73C00578082 /* URLProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331221191D9BA79000CCF436 /* URLProfileManager.m */; };
+		33A4EAD71D9BC73C00578082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E1251CFD82C10084575E /* main.m */; };
+		33A4EAD81D9BC73C00578082 /* NetworkRequestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312210F1D9BA58100CCF436 /* NetworkRequestTools.m */; };
+		33A4EAD91D9BC73C00578082 /* AdverApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3312211C1D9BA88200CCF436 /* AdverApiManager.m */; };
+		33A4EADB1D9BC73C00578082 /* libPods-CNApiManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B16A677B92C163D869DDC02 /* libPods-CNApiManagerDemo.a */; };
+		33A4EADD1D9BC73C00578082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E1321CFD82C10084575E /* LaunchScreen.storyboard */; };
+		33A4EADE1D9BC73C00578082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E1301CFD82C10084575E /* Assets.xcassets */; };
+		33A4EADF1D9BC73C00578082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E12D1CFD82C10084575E /* Main.storyboard */; };
 		DAE9E1261CFD82C10084575E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E1251CFD82C10084575E /* main.m */; };
 		DAE9E1291CFD82C10084575E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E1281CFD82C10084575E /* AppDelegate.m */; };
 		DAE9E12C1CFD82C10084575E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E12B1CFD82C10084575E /* ViewController.m */; };
 		DAE9E12F1CFD82C10084575E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E12D1CFD82C10084575E /* Main.storyboard */; };
 		DAE9E1311CFD82C10084575E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E1301CFD82C10084575E /* Assets.xcassets */; };
 		DAE9E1341CFD82C10084575E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE9E1321CFD82C10084575E /* LaunchScreen.storyboard */; };
-		DAE9E1401CFD83EB0084575E /* CNBaseApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E13D1CFD83EB0084575E /* CNBaseApiManager.m */; };
-		DAE9E1411CFD83EB0084575E /* NetworkRequestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9E13F1CFD83EB0084575E /* NetworkRequestTools.m */; };
 		EBF6B8B0C40B398BBA3B9B67 /* libPods-CNApiManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B16A677B92C163D869DDC02 /* libPods-CNApiManagerDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3312210B1D9BA58100CCF436 /* CNApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNApiManager.h; sourceTree = "<group>"; };
+		3312210C1D9BA58100CCF436 /* CNBaseApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNBaseApiManager.h; sourceTree = "<group>"; };
+		3312210D1D9BA58100CCF436 /* CNBaseApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNBaseApiManager.m; sourceTree = "<group>"; };
+		3312210E1D9BA58100CCF436 /* NetworkRequestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequestTools.h; sourceTree = "<group>"; };
+		3312210F1D9BA58100CCF436 /* NetworkRequestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequestTools.m; sourceTree = "<group>"; };
+		331221101D9BA58100CCF436 /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		331221111D9BA58100CCF436 /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		331221151D9BA5D000CCF436 /* ErrorHandleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHandleManager.h; sourceTree = "<group>"; };
+		331221161D9BA5D000CCF436 /* ErrorHandleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHandleManager.m; sourceTree = "<group>"; };
+		331221181D9BA79000CCF436 /* URLProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProfileManager.h; sourceTree = "<group>"; };
+		331221191D9BA79000CCF436 /* URLProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProfileManager.m; sourceTree = "<group>"; };
+		3312211B1D9BA88200CCF436 /* AdverApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdverApiManager.h; sourceTree = "<group>"; };
+		3312211C1D9BA88200CCF436 /* AdverApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdverApiManager.m; sourceTree = "<group>"; };
+		33A4EAE51D9BC73C00578082 /* CNApiManagerDemo-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNApiManagerDemo-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A4EAE61D9BC73C00578082 /* CNApiManagerDemo-online copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CNApiManagerDemo-online copy-Info.plist"; path = "/Users/sky/xcodeProject/CNApiManager-OC/CNApiManagerDemo/CNApiManagerDemo-online copy-Info.plist"; sourceTree = "<absolute>"; };
 		4B16A677B92C163D869DDC02 /* libPods-CNApiManagerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CNApiManagerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEA39945B59D89604BE4B0C /* Pods-CNApiManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNApiManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9C6FED9656CC9228B79A7236 /* Pods-CNApiManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNApiManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		DAE9E1211CFD82C00084575E /* CNApiManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNApiManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAE9E1211CFD82C00084575E /* CNApiManagerDemo-online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNApiManagerDemo-online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE9E1251CFD82C10084575E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAE9E1271CFD82C10084575E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DAE9E1281CFD82C10084575E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,13 +64,17 @@
 		DAE9E1301CFD82C10084575E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAE9E1331CFD82C10084575E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE9E1351CFD82C10084575E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAE9E13C1CFD83EB0084575E /* CNBaseApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNBaseApiManager.h; sourceTree = "<group>"; };
-		DAE9E13D1CFD83EB0084575E /* CNBaseApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNBaseApiManager.m; sourceTree = "<group>"; };
-		DAE9E13E1CFD83EB0084575E /* NetworkRequestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequestTools.h; sourceTree = "<group>"; };
-		DAE9E13F1CFD83EB0084575E /* NetworkRequestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequestTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		33A4EADA1D9BC73C00578082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A4EADB1D9BC73C00578082 /* libPods-CNApiManagerDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAE9E11E1CFD82C00084575E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +86,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3312210A1D9BA58100CCF436 /* CNApiManagerOC */ = {
+			isa = PBXGroup;
+			children = (
+				3312210B1D9BA58100CCF436 /* CNApiManager.h */,
+				3312210C1D9BA58100CCF436 /* CNBaseApiManager.h */,
+				3312210D1D9BA58100CCF436 /* CNBaseApiManager.m */,
+				3312210E1D9BA58100CCF436 /* NetworkRequestTools.h */,
+				3312210F1D9BA58100CCF436 /* NetworkRequestTools.m */,
+				331221101D9BA58100CCF436 /* ResultModel.h */,
+				331221111D9BA58100CCF436 /* ResultModel.m */,
+			);
+			path = CNApiManagerOC;
+			sourceTree = "<group>";
+		};
 		6A41B1D9AF6B1E960D7333A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,18 +120,20 @@
 		DAE9E1181CFD82C00084575E = {
 			isa = PBXGroup;
 			children = (
-				DAE9E13B1CFD83EB0084575E /* CNApiManagerOC */,
+				3312210A1D9BA58100CCF436 /* CNApiManagerOC */,
 				DAE9E1231CFD82C10084575E /* CNApiManagerDemo */,
 				DAE9E1221CFD82C00084575E /* Products */,
 				6A41B1D9AF6B1E960D7333A6 /* Pods */,
 				A5608926DA6226AFF4B47F78 /* Frameworks */,
+				33A4EAE61D9BC73C00578082 /* CNApiManagerDemo-online copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		DAE9E1221CFD82C00084575E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAE9E1211CFD82C00084575E /* CNApiManagerDemo.app */,
+				DAE9E1211CFD82C00084575E /* CNApiManagerDemo-online.app */,
+				33A4EAE51D9BC73C00578082 /* CNApiManagerDemo-test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +150,12 @@
 				DAE9E1321CFD82C10084575E /* LaunchScreen.storyboard */,
 				DAE9E1351CFD82C10084575E /* Info.plist */,
 				DAE9E1241CFD82C10084575E /* Supporting Files */,
+				331221151D9BA5D000CCF436 /* ErrorHandleManager.h */,
+				331221161D9BA5D000CCF436 /* ErrorHandleManager.m */,
+				331221181D9BA79000CCF436 /* URLProfileManager.h */,
+				331221191D9BA79000CCF436 /* URLProfileManager.m */,
+				3312211B1D9BA88200CCF436 /* AdverApiManager.h */,
+				3312211C1D9BA88200CCF436 /* AdverApiManager.m */,
 			);
 			path = CNApiManagerDemo;
 			sourceTree = "<group>";
@@ -110,39 +168,47 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DAE9E13B1CFD83EB0084575E /* CNApiManagerOC */ = {
-			isa = PBXGroup;
-			children = (
-				DAE9E13C1CFD83EB0084575E /* CNBaseApiManager.h */,
-				DAE9E13D1CFD83EB0084575E /* CNBaseApiManager.m */,
-				DAE9E13E1CFD83EB0084575E /* NetworkRequestTools.h */,
-				DAE9E13F1CFD83EB0084575E /* NetworkRequestTools.m */,
-			);
-			name = CNApiManagerOC;
-			path = ../CNApiManagerOC;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DAE9E1201CFD82C00084575E /* CNApiManagerDemo */ = {
+		33A4EACE1D9BC73C00578082 /* CNApiManagerDemo-test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAE9E1381CFD82C10084575E /* Build configuration list for PBXNativeTarget "CNApiManagerDemo" */;
+			buildConfigurationList = 33A4EAE21D9BC73C00578082 /* Build configuration list for PBXNativeTarget "CNApiManagerDemo-test" */;
 			buildPhases = (
-				69DD07CF2B8A17E1ADA88081 /* 📦 Check Pods Manifest.lock */,
-				DAE9E11D1CFD82C00084575E /* Sources */,
-				DAE9E11E1CFD82C00084575E /* Frameworks */,
-				DAE9E11F1CFD82C00084575E /* Resources */,
-				7564F6F8159318F35AC22DE4 /* 📦 Embed Pods Frameworks */,
-				95AE9308ECFF9F1AA12D41F6 /* 📦 Copy Pods Resources */,
+				33A4EACF1D9BC73C00578082 /* [CP] Check Pods Manifest.lock */,
+				33A4EAD01D9BC73C00578082 /* Sources */,
+				33A4EADA1D9BC73C00578082 /* Frameworks */,
+				33A4EADC1D9BC73C00578082 /* Resources */,
+				33A4EAE01D9BC73C00578082 /* [CP] Embed Pods Frameworks */,
+				33A4EAE11D9BC73C00578082 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CNApiManagerDemo;
+			name = "CNApiManagerDemo-test";
 			productName = CNApiManagerDemo;
-			productReference = DAE9E1211CFD82C00084575E /* CNApiManagerDemo.app */;
+			productReference = 33A4EAE51D9BC73C00578082 /* CNApiManagerDemo-test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAE9E1201CFD82C00084575E /* CNApiManagerDemo-online */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAE9E1381CFD82C10084575E /* Build configuration list for PBXNativeTarget "CNApiManagerDemo-online" */;
+			buildPhases = (
+				69DD07CF2B8A17E1ADA88081 /* [CP] Check Pods Manifest.lock */,
+				DAE9E11D1CFD82C00084575E /* Sources */,
+				DAE9E11E1CFD82C00084575E /* Frameworks */,
+				DAE9E11F1CFD82C00084575E /* Resources */,
+				7564F6F8159318F35AC22DE4 /* [CP] Embed Pods Frameworks */,
+				95AE9308ECFF9F1AA12D41F6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CNApiManagerDemo-online";
+			productName = CNApiManagerDemo;
+			productReference = DAE9E1211CFD82C00084575E /* CNApiManagerDemo-online.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -172,12 +238,23 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DAE9E1201CFD82C00084575E /* CNApiManagerDemo */,
+				DAE9E1201CFD82C00084575E /* CNApiManagerDemo-online */,
+				33A4EACE1D9BC73C00578082 /* CNApiManagerDemo-test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		33A4EADC1D9BC73C00578082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A4EADD1D9BC73C00578082 /* LaunchScreen.storyboard in Resources */,
+				33A4EADE1D9BC73C00578082 /* Assets.xcassets in Resources */,
+				33A4EADF1D9BC73C00578082 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAE9E11F1CFD82C00084575E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,14 +268,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69DD07CF2B8A17E1ADA88081 /* 📦 Check Pods Manifest.lock */ = {
+		33A4EACF1D9BC73C00578082 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,14 +283,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7564F6F8159318F35AC22DE4 /* 📦 Embed Pods Frameworks */ = {
+		33A4EAE01D9BC73C00578082 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,14 +298,59 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95AE9308ECFF9F1AA12D41F6 /* 📦 Copy Pods Resources */ = {
+		33A4EAE11D9BC73C00578082 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69DD07CF2B8A17E1ADA88081 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7564F6F8159318F35AC22DE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNApiManagerDemo/Pods-CNApiManagerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95AE9308ECFF9F1AA12D41F6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,15 +361,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		33A4EAD01D9BC73C00578082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A4EAD11D9BC73C00578082 /* ErrorHandleManager.m in Sources */,
+				33A4EAD21D9BC73C00578082 /* ResultModel.m in Sources */,
+				33A4EAD31D9BC73C00578082 /* ViewController.m in Sources */,
+				33A4EAD41D9BC73C00578082 /* AppDelegate.m in Sources */,
+				33A4EAD51D9BC73C00578082 /* CNBaseApiManager.m in Sources */,
+				33A4EAD61D9BC73C00578082 /* URLProfileManager.m in Sources */,
+				33A4EAD71D9BC73C00578082 /* main.m in Sources */,
+				33A4EAD81D9BC73C00578082 /* NetworkRequestTools.m in Sources */,
+				33A4EAD91D9BC73C00578082 /* AdverApiManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAE9E11D1CFD82C00084575E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331221171D9BA5D000CCF436 /* ErrorHandleManager.m in Sources */,
+				331221141D9BA58100CCF436 /* ResultModel.m in Sources */,
 				DAE9E12C1CFD82C10084575E /* ViewController.m in Sources */,
 				DAE9E1291CFD82C10084575E /* AppDelegate.m in Sources */,
-				DAE9E1401CFD83EB0084575E /* CNBaseApiManager.m in Sources */,
+				331221121D9BA58100CCF436 /* CNBaseApiManager.m in Sources */,
+				3312211A1D9BA79000CCF436 /* URLProfileManager.m in Sources */,
 				DAE9E1261CFD82C10084575E /* main.m in Sources */,
-				DAE9E1411CFD83EB0084575E /* NetworkRequestTools.m in Sources */,
+				331221131D9BA58100CCF436 /* NetworkRequestTools.m in Sources */,
+				3312211D1D9BA88200CCF436 /* AdverApiManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +415,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		33A4EAE31D9BC73C00578082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6FED9656CC9228B79A7236 /* Pods-CNApiManagerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CNApiManagerDemo-online copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ixdtech.CNApiManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33A4EAE41D9BC73C00578082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FEA39945B59D89604BE4B0C /* Pods-CNApiManagerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CNApiManagerDemo-online copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ixdtech.CNApiManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DAE9E1361CFD82C10084575E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +546,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		33A4EAE21D9BC73C00578082 /* Build configuration list for PBXNativeTarget "CNApiManagerDemo-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A4EAE31D9BC73C00578082 /* Debug */,
+				33A4EAE41D9BC73C00578082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DAE9E11C1CFD82C00084575E /* Build configuration list for PBXProject "CNApiManagerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -389,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAE9E1381CFD82C10084575E /* Build configuration list for PBXNativeTarget "CNApiManagerDemo" */ = {
+		DAE9E1381CFD82C10084575E /* Build configuration list for PBXNativeTarget "CNApiManagerDemo-online" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAE9E1391CFD82C10084575E /* Debug */,
